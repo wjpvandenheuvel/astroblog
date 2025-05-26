@@ -38,5 +38,6 @@ export const SOCIAL_LINKS = {
   threads: "https://threads.net/stevedylandev",
   website: "/",
   coffee: "https://buymeacoffee.com/stevedylandev",
-  orbiter: "https://orbiter.host"
+  orbiter: "https://orbiter.host",
+  ethereum: "https://app.ens.domains/stevedylandev.eth"
 };
