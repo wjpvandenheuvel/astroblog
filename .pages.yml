@@ -1,0 +1,50 @@
+# .pages.yml
+collections:
+  posts:
+    path: src/content/post
+    name: Blog Posts
+    description: Your blog posts
+    type: collection
+    fields:
+      - name: title
+        type: string
+        label: Title
+        required: true
+      - name: description
+        type: string
+        label: Description
+      - name: publishDate
+        type: date
+        label: Publish Date
+        required: true
+      - name: tags
+        type: list
+        label: Tags
+      - name: draft
+        type: boolean
+        label: Draft
+        default: false
+      - name: body
+        type: rich-text
+        label: Content
+
+  pages:
+    path: src/content/pages
+    name: Pages
+    description: Static pages
+    type: collection
+    fields:
+      - name: title
+        type: string
+        label: Title
+        required: true
+      - name: description
+        type: string
+        label: Description
+      - name: body
+        type: rich-text
+        label: Content
+
+media:
+  path: public/images
+  public_path: /images
