@@ -1,50 +1,40 @@
-# .pages.yml
-collections:
-  posts:
-    path: src/content/post
-    name: Blog Posts
-    description: Your blog posts
-    type: collection
-    fields:
-      - name: title
-        type: string
-        label: Title
-        required: true
-      - name: description
-        type: string
-        label: Description
-      - name: publishDate
-        type: date
-        label: Publish Date
-        required: true
-      - name: tags
-        type: list
-        label: Tags
-      - name: draft
-        type: boolean
-        label: Draft
-        default: false
-      - name: body
-        type: rich-text
-        label: Content
-
-  pages:
-    path: src/content/pages
-    name: Pages
-    description: Static pages
-    type: collection
-    fields:
-      - name: title
-        type: string
-        label: Title
-        required: true
-      - name: description
-        type: string
-        label: Description
-      - name: body
-        type: rich-text
-        label: Content
-
 media:
-  path: public/images
-  public_path: /images
+  input: public
+  output: /
+content:
+  - name: posts
+    label: Blog Posts
+    type: collection
+    path: src/content/post
+    view:
+      fields: [ title, draft, publishDate ]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Description, type: string }
+      - { name: publishDate, label: Publish Date, type: date, required: true }
+      - { name: updatedDate, label: Updated Date, type: date }
+      - { name: heroImage, label: Hero Image, type: string }
+      - { name: draft, label: Draft, type: boolean, default: false }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: body, label: Content, type: rich-text }
+  - name: about
+    label: About Page
+    type: file
+    path: src/pages/about.astro
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: body, label: Content, type: rich-text }
+  - name: projects
+    label: Projects
+    type: collection
+    path: src/content/work
+    view:
+      fields: [ title, publishDate ]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Description, type: string }
+      - { name: publishDate, label: Date, type: date }
+      - { name: img, label: Image, type: string }
+      - { name: img_alt, label: Image Alt Text, type: string }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: body, label: Content, type: rich-text }
